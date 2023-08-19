@@ -40,16 +40,32 @@ int buscaSequencial(TIPOCHAVE ch, LISTA l){
 
 // Busca Binária
 int buscaBinaria(LISTA l, TIPOCHAVE ch){
-    int inf, sup, meio;
-    inf = 0;
-    sup = l.nrmElem;
-    while (inf <= sup){
+   int sup, inf, meio;
+   inf = 0;
+   while (inf <= sup){
         meio = (inf + sup) / 2;
-    }
-    return -1;
+        if(ch == l.A[meio].chave) return meio;
+        else{
+            if (l.A[meio].chave < ch) inf = meio + 1;
+            else sup = meio - 1 ;
+        }
+   }
+   return -1;
 }
 
+// Inserção de elemento na lista (de forma direta) 
+bool inserirElemento(LISTA *l, int i, TIPOCHAVE ch){
+        if((l->nrmElem >= MAX) || (i < 0) || (i > (l->nrmElem))) return (false);
+        // Se a lsita tiver cheia, ou a posição for negativa, ou a posição for maior do que o número de elementos (FALSE);
+        if((l->nrmElem > 0) && (i < l->nrmElem))
+            for (int j = l->nrmElem; j >= (i + 1); j--)
+                l->A[j] = l->A[j-1]; // Pega o da esquerda e põe na direita
+        l->A[i].chave = ch;
+        l->nrmElem++;
+        return(true);
+}   
 
+// Programa principal
 int main(){
     LISTA x;
     inicializarLista(&x);
