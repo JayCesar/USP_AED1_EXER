@@ -64,7 +64,7 @@ bool anexar(LISTALigEst *l, int ch){
     }
 }
 
-
+// Obs: o que foi feito é implementação estática! Logo virá a dinâmica
 
 
 int main(){

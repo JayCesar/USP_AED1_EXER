@@ -42,6 +42,7 @@ int buscaSequencial(TIPOCHAVE ch, LISTA l){
 int buscaBinaria(LISTA l, TIPOCHAVE ch){
    int sup, inf, meio;
    inf = 0;
+   sup = l.nrmElem - 1;
    while (inf <= sup){
         meio = (inf + sup) / 2;
         if(ch == l.A[meio].chave) return meio;
