@@ -90,8 +90,8 @@ int binarySearach(TIPOCHAVE ch, LISTA l){
 
 // Retornar a chave do n-ésimo elemento da lista sequencial
 int enesimoElem(LISTA l, int n) {
-if(n <= l.nroElem) return(l.A[n-1].chave);
-else return(-1);
+    if(n <= l.nroElem) return(l.A[n-1].chave);
+    else return(-1);
 }
 
 // Remover elemento
@@ -106,7 +106,18 @@ bool removeElem(TIPOCHAVE ch, LISTA *l){
     }
 }
 
-// Inserção de elemento na lista (de forma direta) 
+// Inserção "direta" na posição i
+bool inserirElemListaSeq(int ch, int i, LISTA* l) {
+    int j;
+    if((l->nroElem >= MAX) || (i < 0) || (i > (l->nroElem)))
+        return(false); // lista cheia ou índice inválido
+    if((l->nroElem > 0) && (i < l->nroElem))
+        for (j = l->nroElem; j >= (i+1); j--)
+            l->A[j] = l->A[j-1];
+    l->A[i].chave=ch;
+    l->nroElem++;
+    return(true);
+}
 
 
 int main(){
