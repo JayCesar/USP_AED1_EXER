@@ -14,7 +14,7 @@ typedef struct {
 } LISTA;
 
 // BUSCA
-NO* BUSCA(LISTA *l, int ch, NO* *ant){ // busca ....... &ant (ficaria assim a implementação)
+NO* busca(LISTA *l, int ch, NO* *ant){ // busca ....... &ant (ficaria assim a implementação)
     *ant = NULL;
     NO* p = l->inicio;
     while (p){
@@ -42,7 +42,7 @@ bool excluir(LISTA *l, int ch){
     return true;
 }
 
-// INSERÇÃO
+// INSERÇÃO (ela insere na ordem);
 bool inserir(LISTA *l, int ch){
     NO* ant;
     NO* atual = busca(l, ch, &ant);
@@ -64,4 +64,34 @@ bool inserir(LISTA *l, int ch){
     return true; 
 }
 
-// MOVER Ch para frente da lista (versão 1)
+// (1) MOVER Ch para frente da lista (versão 1);
+// (2) MOVER P para frente da lista (versão 2);
+
+// (Versão 1);
+void moverChParaInicio(LISTA *l, int ch){ // Aqui é um caso especial
+    NO* ant;
+    if(l->inicio && l->inicio->chave == ch) return; // Passo 1: preciso mover?
+    NO* p = busca(l, ch, &ant); // Passo 2: Busca
+    if(ant) ant->prox = p->prox;  // Passo 3: Recortar o elemento
+    else l->inicio = p->prox;
+    // Agora movo para o início da lista
+    p->prox = l->inicio; // Passo 4: Colocar no início
+    l->inicio = p;
+}
+
+// Obs: A (versão 2) ele fez na lousa mas não consegui anotar
+
+
+// Destruir a lista
+void destruir(LISTA* l){
+    NO* p = l->inicio;
+    while(p){
+        NO* aux = p->prox;
+        free(p);
+        p = aux;
+    }
+    l->inicio = NULL;
+}
+
+// Seuja uma lista que aceita chaves repetidas, sem ordem;
+// Problema: eliminar todas ocorrências de uma chave ch
