@@ -11,7 +11,7 @@ int main(void){
     // Ela irá retornar o ponteiro uqe aponta para o endereço do bloco que foi alocado com a função malloc;
     // Depois e digo o tamnho dessa memória que eu quero alocar;
     // Eu poderia fazer isso também: int *p = malloc(10 * sizeof(int));
-    // Ou seja, um possível vetor de tamaho 10;
+    // Ou seja, um possível vetor de tamanho 10;
     // De novo: o malloc retorna um void;
 
     // Importante: quando eu aloco um espaço na memória, se tiver lixo lá, o malloc não irá remover!
