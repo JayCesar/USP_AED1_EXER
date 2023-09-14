@@ -26,7 +26,6 @@ NO* BUSCA(LISTA *l, int ch, NO* *ant){ // busca ....... &ant (ficaria assim a im
     return NULL; // Isso é caso não funcione em nenhum dos casos acima
 }
 
-
 // TODO: Colocar lado a lado (busca diâmica e Busca sequencial)
 // TODO: Por que ' NO* *ant)';
 // Eu posso modificar ele - NO* *ant (Eu posso fazer o que precisar com isso)
@@ -43,9 +42,26 @@ bool excluir(LISTA *l, int ch){
     return true;
 }
 
-// INSERSÇÃO
+// INSERÇÃO
 bool inserir(LISTA *l, int ch){
     NO* ant;
     NO* atual = busca(l, ch, &ant);
     if(atual) return false; // Já existe
+    NO* novo = (NO*) malloc(sizeof(NO)); // Aqui o NO sem asteriscos é a estrutura, o tipo!
+    novo->chave = ch;
+    // Agora preciso tratar os casos de inserção
+    // Caso haja um anterior
+
+    // Agora verifico se a lista está vazia (se não existe início) e já aplico os dois casos
+    if(ant) {
+        novo->prox = ant->prox;
+        ant->prox = novo;
+    }
+    else{
+        novo->prox = l->inicio; // Lista vazia é quando o iníccio é null
+        l->inicio = novo;
+    }   
+    return true; 
 }
+
+// MOVER Ch para frente da lista (versão 1)
