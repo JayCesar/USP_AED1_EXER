@@ -1,3 +1,4 @@
+// Aula dia 13/09/2023 | Quarta-feira
 #include <stdbool.h>
 #include <stdio.h>
 #define MAX 50

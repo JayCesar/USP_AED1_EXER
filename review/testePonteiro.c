@@ -3,6 +3,7 @@
 void verificar(int *numero){
     
     *numero = *numero + 5;
+    // Assim eu altero o valor que está lá
 
 }
 
