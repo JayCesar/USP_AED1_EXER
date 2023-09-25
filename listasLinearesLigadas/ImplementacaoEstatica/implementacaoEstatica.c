@@ -99,7 +99,7 @@ bool excluirElemListaEnc(int ch, LISTA *l){
     if( i < 0) return (false);
     if(ant == -1) l->inicio = l->A[i].prox;
     else l->A[ant].prox = l->A[i].prox;
-    // Eu basicamente elimente apenas mudando os 'prox'
+    // Eu basicamente elimino apenas mudando os 'prox'
     devolverNo(l, i);
     return true;
 }

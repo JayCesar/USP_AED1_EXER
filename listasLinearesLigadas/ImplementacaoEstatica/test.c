@@ -11,7 +11,7 @@ typedef struct{
 typedef struct{
     REGISTRO A[MAX];
     int inicio;
-    int dispo;
+    int dispo; 
 } LISTA;
 
 // Inicializando a lista
@@ -34,19 +34,19 @@ void exibeLista(LISTA l){
 }
 
 // BuscaSequencial, retornando a posição da chave e do anterior
-void buscaSeqOrd(LISTA l, int ch, int *ant){
+int buscaSeqOrd(int ch, LISTA l, int* ant){
 
     int i = l.inicio;
-    *ant = -1;
+    *ant= -1;
 
-    while (i != -1){
-        if (l.A[i].chave >= ch) break;
+    while (i != -1) {
+        if(l.A[i].chave >= ch) break;
         *ant = i;
-        i = l.A[i].prox;
+        i= l.A[i].prox;
     }
-    
-    if (i == -1) return -1;
-    if (l.A[i].chave == ch) return (i);
+
+    if(i==-1) return -1;
+    if(l.A[i].chave==ch) return(i);
     else return -1;
 }
 
@@ -65,3 +65,18 @@ void devolverNo(LISTA *l, int j){
     l->dispo = j;
 }
 
+// Exclusão do elemento de chave indicada
+bool excluirElemListaEnc(int ch, LISTA *l){
+    int ant, i;
+    i = buscaSeqOrd(ch, *l, &ant);
+    if (i < 0) return(false);
+    if (ant == -1) l->inicio = l->A[i].prox;
+
+}
+
+
+
+// if(ant == -1) l->inicio = l->A[i].prox;
+// else l->A[ant].prox = l->A[i].prox;
+// devolverNo(l, i);
+// return(true);

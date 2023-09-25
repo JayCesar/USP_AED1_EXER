@@ -11,7 +11,7 @@ int main(){
     int y = 2;
     int *x = &y;
 
-    printf("%d\n", x);
+    printf("%d\n", *x);
 
     verificar(x);
     

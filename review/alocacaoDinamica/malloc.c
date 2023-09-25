@@ -7,7 +7,7 @@ int main(void){
     // E é aqui que entrar a alocação dinâmica
 
     // Malloc = Memory Alocation
-    int *p = (int *) malloc(sizeof(int)); // Preciso fazer o castng pra o tipo ponteiro, pois retoran um void
+    int *p = (int *) malloc(sizeof(int)); // Preciso fazer o casting pra o tipo ponteiro, pois retoran um void
     // Ela irá retornar o ponteiro uqe aponta para o endereço do bloco que foi alocado com a função malloc;
     // Depois e digo o tamnho dessa memória que eu quero alocar;
     // Eu poderia fazer isso também: int *p = malloc(10 * sizeof(int));
