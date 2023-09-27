@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 Para evitar a necessidade de definição antecipada do tamanho máximo da estrutura de implementação estática
@@ -8,7 +9,7 @@ programação. Esta técnica constitui à implementação dinâmica de listas li
 disponibilizadas em malloc.h:
 */
 
-# include <malloc.h>
+#include <malloc.h>
 
 /*
 Em uma lista ligada de implementação dinâmica, não há mais uso de vetores. Cada elemento da lista é uma
@@ -40,8 +41,8 @@ typedef struct {
 /* A alocação e desalocação de nós é feita dinamicamente pelo próprio compilador C através das primitivas
 malloc e free, respectivamente. */
 
-NO *p = (NO*) malloc(sizeof(NO)); // cria um novo nó em memória, apontado por p
-free(p); // a área de memória apontada por p é liberada;
+// NO *p = (NO*) malloc(sizeof(NO)); // cria um novo NO em memoria, apontado para o p
+// free(p); // a área de memória apontada por p é liberada;
 
 /*
 Via de regra, malloc() é usado em rotinas de inserção ou criação de novos nós, enquanto que free() é usado na
@@ -96,35 +97,9 @@ NO* enesimoElemLista(LISTA l, int n){
     else return(p); 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main(){
     return 0;
 }
-
-
-
 
 
 
